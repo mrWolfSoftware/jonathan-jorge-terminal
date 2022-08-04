@@ -1,0 +1,627 @@
+<html>
+  <head>
+    <title></title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      body {
+        background-color: #0e0f10;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .tabela-principal {
+        width: 100%;
+        height: 100vh;
+        border-collapse: collapse;
+      }
+
+      .cabecalho {
+        background: black;
+        color: white;
+        height: 200px;
+      }
+
+      .menu {
+        width: 10%;
+        background: #1d1d22;
+        padding: 20px;
+        vertical-align: top;
+        text-align: center;
+        position: fixed;
+        height: 100%;
+      }
+
+      .table-body {
+        padding-left: 25%;
+        padding-right: 15%;
+        vertical-align: top;
+      }
+
+      .title {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+      }
+
+      .card-box {
+        display: flex;
+      }
+
+      .card-box-img img {
+        height: 200px;
+        border-radius: 50%;
+      }
+
+      .card-box-body {
+        margin-left: 20px;
+      }
+
+      .menu p {
+        margin-bottom: 30px;
+      }
+
+      .menu a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .menu i {
+        font-size: 30px;
+      }
+
+      .menu a:hover {
+        color: #25ca7f;
+      }
+
+      .menu .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 2px solid #25ca7f;
+        margin-bottom: 50px;
+      }
+
+      .service-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .service-container .service-item {
+        width: calc(33.33% - 32px);
+        /* margin-bottom: 16px; */
+        margin: 16px;
+      }
+
+      .service-container .service-item .service-item-card {
+        border: 1px solid black;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .service-container .service-item .service-item-card:hover {
+        border: 1px solid #25ca7f;
+      }
+
+      .service-container
+        .service-item
+        .service-item-card
+        .service-item-card-icon {
+        background-color: #0e0f10;
+        height: 80px;
+        border: 1px solid black;
+        width: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .service-container
+        .service-item
+        .service-item-card
+        .service-item-card-icon:hover {
+        border: 1px solid #25ca7f;
+      }
+
+      .service-container
+        .service-item
+        .service-item-card
+        .service-item-card-icon
+        i {
+        font-size: 30px;
+      }
+
+      .service-container
+        .service-item
+        .service-item-card
+        .service-item-card-title {
+        margin-top: 16px;
+        margin-bottom: 16px;
+      }
+
+      .service-container
+        .service-item
+        .service-item-card
+        .service-item-card-description {
+        text-align: center;
+      }
+
+      .flexbox {
+        display: flex;
+        gap: 30px;
+      }
+
+      .flexbox-item {
+        width: 50%;
+      }
+
+      .card {
+        background: #070708;
+        padding: 30px;
+        border-radius: 8px;
+      }
+
+      .timeline-item {
+        padding-bottom: 30px;
+        border-left: 1px solid #25ca7f;
+        padding-left: 32px;
+        position: relative;
+      }
+
+      .timeline-item-period {
+        font-size: 12px;
+        color: #25ca7f;
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+
+      .timeline-item-marker {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 8px;
+        left: -8px;
+        /* bottom: 10px; */
+      }
+
+      .timeline-item-marker-circle {
+        height: 15px;
+        width: 15px;
+        background: #25ca7f;
+        border-radius: 50%;
+      }
+
+      .timeline-item-marker-line {
+        height: 1px;
+        width: 15px;
+        background: #25ca7f;
+      }
+
+      #aboutMeSection,
+      #experienceSection,
+      #contactSection {
+        scroll-margin-top: 50px;
+      }
+
+      .progress-bar {
+        background-color: #0e0f10;
+        height: 8px;
+        border-radius: 8px;
+        position: relative;
+        margin-bottom: 60px;
+      }
+
+      .progress-bar-done {
+        background: #25ca7f;
+        height: 100%;
+        border-radius: 8px;
+        position: relative;
+      }
+
+      .progress-bar-done-check {
+        height: 20px;
+        width: 20px;
+        border: 4px solid #25ca7f;
+        border-radius: 50%;
+        position: absolute;
+        right: 0px;
+        top: -6px;
+        background-color: #0e0f10;
+      }
+
+      .progress-bar-title {
+        position: absolute;
+        top: -30px;
+      }
+
+      .progress-bar-done-text {
+        position: absolute;
+        top: -30px;
+        right: 0px;
+      }
+
+      .padding-top-60 {
+        padding-top: 60px;
+      }
+
+      .contact-item {
+        text-align: center;
+        flex-direction: column;
+        width: 30%;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .contact-item-icon {
+        font-size: 40px;
+        border: 1px solid #25ca7f;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .contact-item-value a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .contact-item-value a:hover {
+        text-decoration: underline;
+      }
+
+      h2.fill-animation {
+        position: relative;
+        color: #252839;
+        -webkit-text-stroke: 1px white;
+        text-transform: uppercase;
+        font-size: 60px;
+      }
+      h2.fill-animation::before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        color: #01fe87;
+        -webkit-text-stroke: 0vw #383d52;
+        overflow: hidden;
+        animation: animate 6s linear forwards;
+      }
+
+      @keyframes animate {
+        0%,
+        10% {
+          width: 0;
+        }
+        70%,
+        90%,
+        100% {
+          width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <table class="tabela-principal">
+      <tr>
+        <td class="menu">
+          <div class="logo">
+            <h2 data-text="CV" class="fill-animation">CV</h2>
+          </div>
+          <p>
+            <a href="#aboutMeSection">
+              <i class="fa-solid fa-user-tie"></i>
+            </a>
+          </p>
+          <p>
+            <a href="#experienceSection">
+              <i class="fa-solid fa-address-book"></i>
+            </a>
+          </p>
+          <p>
+            <a href="#contactSection">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </p>
+        </td>
+        <td class="table-body">
+          <div
+            id="aboutMeSection"
+            style="padding-bottom: 30px; min-height: 1000px;"
+          >
+            <h1 class="title">Quem sou seu</h1>
+            <div class="card-box card">
+              <div class="card-box-img">
+                <img src="./img/user-photo.jpeg" />
+              </div>
+              <div class="card-box-body">
+                <h3>Jonathan Jorge</h3>
+                <p>Dublin, Ireland</p>
+                <p>
+                  Hi! My name is Jonathan Jorge and i am developer with over
+                  height year work experience and i worked with many projects
+                  since this. Currently my work has been as a Developer Full
+                  Stack and Mobile. Today my works was Developer Fullstack and
+                  Mobile. From February i will move to Dublin, Ireland.
+                </p>
+                <p>
+                  I have some hobbies, the ones i like most is traveling and
+                  playing sports.
+                </p>
+              </div>
+            </div>
+            <h2 class="title">Areas de Atuação</h2>
+            <div class="service-container">
+              <div class="service-item">
+                <div class="service-item-card card">
+                  <div class="service-item-card-icon">
+                    <i class="fa-solid fa-desktop"></i>
+                  </div>
+                  <div class="service-item-card-title">
+                    <h3>Front End Developer</h3>
+                  </div>
+                  <div class="service-item-card-description">
+                    <span>
+                      Html, Javascript(Angular, JQuery, React), Css...
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="service-item">
+                <div class="service-item-card card">
+                  <div class="service-item-card-icon">
+                    <i class="fa-solid fa-cogs"></i>
+                  </div>
+                  <div class="service-item-card-title">
+                    <h3>Back End Developer</h3>
+                  </div>
+                  <div class="service-item-card-description">
+                    <span>
+                      Node, PHP(Zend Framework, Slim Framework, Laravel), Java,
+                      etc...
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="service-item">
+                <div class="service-item-card card">
+                  <div class="service-item-card-icon">
+                    <i class="fa-solid fa-mobile-alt"></i>
+                  </div>
+                  <div class="service-item-card-title">
+                    <h3>Mobile Developer</h3>
+                  </div>
+                  <div class="service-item-card-description">
+                    <span>Android, React Native, Ionic, etc...</span>
+                  </div>
+                </div>
+              </div>
+              <div class="service-item">
+                <div class="service-item-card card">
+                  <div class="service-item-card-icon">
+                    <i class="fa-solid fa-database"></i>
+                  </div>
+                  <div class="service-item-card-title">
+                    <h3>Data Modeling</h3>
+                  </div>
+                  <div class="service-item-card-description">
+                    <span>MySQL, PostGres, etc...</span>
+                  </div>
+                </div>
+              </div>
+              <div class="service-item">
+                <div class="service-item-card card">
+                  <div class="service-item-card-icon">
+                    <i class="fa-solid fa-cogs"></i>
+                  </div>
+                  <div class="service-item-card-title">
+                    <h3>Others</h3>
+                  </div>
+                  <div class="service-item-card-description">
+                    <span>Pentaho BI Solutions, MetaQuotes, R Studio</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="experienceSection">
+            <h1 class="title">Resumo</h1>
+            <div class="flexbox">
+              <div class="flexbox-item">
+                <h2 class="title">Experiência Profissional</h2>
+                <div class="card">
+                  <div class="timeline-item">
+                    <div class="timeline-item-marker">
+                      <div class="timeline-item-marker-circle"></div>
+                      <div class="timeline-item-marker-line"></div>
+                    </div>
+                    <h3>Full Stack Developer | Mobile</h3>
+                    <p class="timeline-item-period">
+                      <i class="fa-solid fa-calendar-days"></i>
+                      2018 - December 2019 | Beepay
+                    </p>
+                    Beepay is a start up with an innovative retail project, the
+                    goal is to eliminate the use of trolleys within
+                    supermarkets, improve the shopping experience for the
+                    consumer and provide strategic customer consumption data for
+                    the retailer to improve sales. Within Start Up I was
+                    responsible for integrating Beepay and supermarkets,
+                    developing and improving the mobile app and displaying the
+                    data to the merchant. The main technologies used were:
+                    PostGres, Laravel (PHP), Ionic, JQuery, Twitter Bootstrap.
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-item-marker">
+                      <div class="timeline-item-marker-circle"></div>
+                      <div class="timeline-item-marker-line"></div>
+                    </div>
+                    <h3>Full Stack Developer | Mobile</h3>
+                    <p class="timeline-item-period">
+                      <i class="fa-solid fa-calendar-days"></i>
+                      2018 - December 2019 | Beepay
+                    </p>
+                    Beepay is a start up with an innovative retail project, the
+                    goal is to eliminate the use of trolleys within
+                    supermarkets, improve the shopping experience for the
+                    consumer and provide strategic customer consumption data for
+                    the retailer to improve sales. Within Start Up I was
+                    responsible for integrating Beepay and supermarkets,
+                    developing and improving the mobile app and displaying the
+                    data to the merchant. The main technologies used were:
+                    PostGres, Laravel (PHP), Ionic, JQuery, Twitter Bootstrap.
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-item-marker">
+                      <div class="timeline-item-marker-circle"></div>
+                      <div class="timeline-item-marker-line"></div>
+                    </div>
+                    <h3>Full Stack Developer | Mobile</h3>
+                    <p class="timeline-item-period">
+                      <i class="fa-solid fa-calendar-days"></i>
+                      2018 - December 2019 | Beepay
+                    </p>
+                    Beepay is a start up with an innovative retail project, the
+                    goal is to eliminate the use of trolleys within
+                    supermarkets, improve the shopping experience for the
+                    consumer and provide strategic customer consumption data for
+                    the retailer to improve sales. Within Start Up I was
+                    responsible for integrating Beepay and supermarkets,
+                    developing and improving the mobile app and displaying the
+                    data to the merchant. The main technologies used were:
+                    PostGres, Laravel (PHP), Ionic, JQuery, Twitter Bootstrap.
+                  </div>
+                </div>
+              </div>
+              <div class="flexbox-item">
+                <h2 class="title">
+                  Educação
+                </h2>
+                <div class="card">
+                  <div class="timeline-item">
+                    <div class="timeline-item-marker">
+                      <div class="timeline-item-marker-circle"></div>
+                      <div class="timeline-item-marker-line"></div>
+                    </div>
+                    <h3>Graduate</h3>
+                    <p class="timeline-item-period">
+                      <i class="fa-solid fa-calendar-days"></i>
+                      2012 - 2015 | Information Systems
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="title">Tecnologias</h2>
+            <div class="card padding-top-60">
+              <div class="progress-bar">
+                <div class="progress-bar-title">
+                  PHP
+                </div>
+                <div class="progress-bar-done" style="width: 98%;">
+                  <div class="progress-bar-done-text">
+                    98%
+                  </div>
+                  <div class="progress-bar-done-check"></div>
+                </div>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-title">
+                  PostGres
+                </div>
+                <div class="progress-bar-done" style="width: 90%;">
+                  <div class="progress-bar-done-text">
+                    90%
+                  </div>
+                  <div class="progress-bar-done-check"></div>
+                </div>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-title">
+                  JAVA
+                </div>
+                <div class="progress-bar-done" style="width: 40%;">
+                  <div class="progress-bar-done-text">
+                    40%
+                  </div>
+                  <div class="progress-bar-done-check"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="contactSection" style="height: 1000px;">
+            <h1 class="title">Contato</h1>
+            <div class="card flexbox">
+              <div class="contact-item flexbox">
+                <div class="contact-item-icon">
+                  <i class="fas fa-paper-plane"></i>
+                </div>
+                <div class="contact-item-value">
+                  <a href="mailto:desenvolvedor.jonathan@gmail.com">
+                    desenvolvedor.jonathan@gmail.com
+                  </a>
+                </div>
+                <div class="contact-item-description">
+                  Email
+                </div>
+              </div>
+              <div class="contact-item flexbox">
+                <div class="contact-item-icon">
+                  <i class="fab fa-instagram"></i>
+                </div>
+                <div class="contact-item-value">
+                  <a
+                    target="_blank"
+                    href="https://www.instagram.com/carreiradesenvolvedor/"
+                  >
+                    carreiraDesenvolvedor
+                  </a>
+                </div>
+                <div class="contact-item-description">
+                  Instagram
+                </div>
+              </div>
+              <div class="contact-item flexbox">
+                <div class="contact-item-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-item-value">
+                  +353 89 979-4145
+                </div>
+                <div class="contact-item-description">
+                  Instagram
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
